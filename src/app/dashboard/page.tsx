@@ -185,7 +185,7 @@ export default async function Dashboard({
                 <h3 id={`cat-${c.id}`} className="text-xl font-bold">
                   {c.name}
                   {c.name_ar && (
-                    <span dir="rtl" lang="ar" className="ms-3 text-muted">
+                    <span dir="rtl" lang="ar" className="ml-3 text-muted">
                       {c.name_ar}
                     </span>
                   )}

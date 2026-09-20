@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: { default: 'Tawla · Menu QR et commandes WhatsApp', template: '%s · Tawla' },
   description:
     'Créez le menu QR de votre restaurant et recevez les commandes sur WhatsApp. Gratuit jusqu’à 20 plats.',
+  icons: { icon: 'data:,' },
 };
 
 export const viewport: Viewport = { width: 'device-width', initialScale: 1 };
