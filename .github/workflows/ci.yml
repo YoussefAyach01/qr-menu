@@ -1,0 +1,20 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      # test:e2e is intentionally not run here: it drives system Chrome via
+      # playwright-core against a locally spawned `next start` server, which
+      # needs a real browser binary/channel installed on the runner. That
+      # setup is beyond this minimal workflow, so it's left for manual/local
+      # runs (or a follow-up job with browser provisioning) instead of
+      # guessing at a config that hasn't been verified to pass in CI.
